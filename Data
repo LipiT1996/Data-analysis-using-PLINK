@@ -1,0 +1,20 @@
+For the data analysis, fetch data from https://datadryad.org/stash/dataset/doi:10.5061/dryad.v8g21pt.
+
+DATA: a huge data with multiple species of goats all over the world to determine the phenotypic difference in adaptation after domestification.
+
+.fam file consists of six columns, 
+column 1: family information(FID)
+column 2: individual identity(IID)
+Column 3 and 4: Phenotype information of parents. Generally its 0.
+Column 5: Sex information of individual mentioned in column2. 1 -> Male, 2-> Female, 0 -> Unknown
+Column 6: Phenotype information of individual mentioned in column 2. Case ->1, Control ->2 unknown -> 0 or -9
+
+.bim file consists information of the SNPs. 
+Column 1: Chromosome number. In case of this data, number of chromosome are 29 pair of autosomal chromosome 
+and 1 pair of sex chromosome = 30 pair of chromosome(60 chromosomes)
+Columne 2: Names of SNPs
+Column 3: Location of SNP
+Column 4: Co-ordinates of snp on the chromosome
+Columne 5 and Column 6: allel information. 
+
+.bed file is the binary file which occupies less space of the disc and can be read only by the machine.

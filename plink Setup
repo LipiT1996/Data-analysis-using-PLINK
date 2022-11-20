@@ -3,3 +3,4 @@ Unzip the downloaded file.
 Copy the plink executeable file to the directory you want to perform analysis.
 Open the terminal and navigate the directory path through cd command. 
 Once you reach to the directory consisting plink executeable file, type "Plink" and the plink would open. If you get an error "plink command not found", use command sudo cp plink/user/local/bin/plink to set the path.
+Also, to execute Plink in R, setup R and Rstudio. 

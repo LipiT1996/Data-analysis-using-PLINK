@@ -1,0 +1,29 @@
+Two methods to execute plink:
+1) using command line
+2) Using R studio. 
+
+
+1) Command Line 
+    use command:
+                plink --bfile ADAPTmap_genotypeTOP_20160222_full --cow --nonfounders --allow-no-sex --recode --out ADAPTmap_TOP
+    --bfile: a command used in plink to automatically detect the .fam,.bim and .bed file having the same name- ADAPTmap_genotypeTOP_20160222_full.
+    
+    --cow: specifies the number of chromosome. In this case its 60.
+    --nonfounders: excludes the data which does not have or has 0 in parental information in .fam file. 
+    --allow-no-sex: removes the data having unknown attribute in the sex column of the .fam file.
+    --recode:  the main command to generate map and ped file.
+    --out: performs the given tasks and generate the output files with name ADAPTmap_TOP.
+    
+What is ped and map file?
+Ped file -  the file which generates the concatenation of information from .fam and .bim file.
+Map file - the file is similar to .fam file.
+
+2) Plink with R studio
+
+rm(list = ls())
+
+Set the directory to the analysis folder consistinf plink executable file and data
+setwd("d: /PATH") where path the navigation to the directory. 
+
+system("plink --bfile ADAPTmap_genotypeTOP_20160222_full --cow --nonfounders --allow-no-sex --recode --out ADAPTmap_TOP")
+

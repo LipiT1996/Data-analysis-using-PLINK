@@ -1,0 +1,27 @@
+It is very important to standardise the data and remove noise from the data.
+With respect to this data, its important to remove the SNP and individual having redundant unknown data. 
+To solve this problem, lets explore some quality control techniques
+1) Missingness of the SNP: Set a threshold on SNP, where the unknown(00) individual result is more than 10%. Plink offers the commnad --geno to set 0.1% threshold.
+  SNP having unknown/missing more than 10% will be deleted
+2) Missingness of Individual: Set a threshold of 10% where the individual has missing information. Plink offers command --mind.
+3) Minor allel frequency: allel having less than 0.05 or 5% of frequency will be removed. Plink offers command --maf.
+
+Execute the command:
+
+rm(list = ls())
+
+setwd("d:~/Desktop/Learning/analsis")
+
+#quality control 
+#--geno 0.1 -> missingness of the SNP
+# --mind 0.1 -> missingness of the individual
+# --maf 0.05 -> low allel frequency
+
+#with no qc parameters
+system("plink --bfile ADAPTmap_genotypeTOP_20160222_full --cow --nonfounders --allow-no-sex --make-bed --out afterQC")
+
+#with qc parametes
+system("plink --bfile ADAPTmap_genotypeTOP_20160222_full --cow --geno 0.1 --mind 0.1 --maf 0.05  --nonfounders --allow-no-sex --make-bed --out afterQC")
+
+#remove haploids or rather sex chromosomes using --autosome command.
+system("plink --bfile ADAPTmap_genotypeTOP_20160222_full --cow --geno 0.1 --mind 0.1 --maf 0.05 --autosome --nonfounders --allow-no-sex --make-bed --out afterQC")
